@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <title>🎁 Giáng Sinh 🌲</title>
+  <link rel="stylesheet" href="./style/style.css">
+</head>
+<body>
+<div id="rotateWarning">
+  📱 Vui lòng xoay ngang điện thoại để xem trang ❤️
+</div>
+<audio id="bgMusic" src="./style/nhac.mp3" loop></audio>
+<!-- Lock screen music (nhạc2) -->
+<audio id="lockMusic" src="./style/nhạc2.mp3" loop></audio>
+<div id="lockScreen">
+  <div class="lock-container">
+    <img src="./style/img/Anh.png">
+    <div class="right-box">
+      <h2>🔒Hãy nhập mật khẩu💕</h2>
+      <!-- music button removed from lock screen to avoid auto-play -->
+      <input id="pwd" type="password" readonly placeholder="xx/xx/xx">
+      <div class="keypad">
+        <button class="key" onclick="press('1')">1</button>
+        <button class="key" onclick="press('2')">2</button>
+        <button class="key" onclick="press('3')">3</button>
+        <button class="key" onclick="press('4')">4</button>
+        <button class="key" onclick="press('5')">5</button>
+        <button class="key" onclick="press('6')">6</button>
+        <button class="key" onclick="press('7')">7</button>
+        <button class="key" onclick="press('8')">8</button>
+        <button class="key" onclick="press('9')">9</button>
+        <button class="key clear" onclick="clearPwd()">X</button>
+        <button class="key" onclick="press('0')">0</button>
+        <button class="key" onclick="checkPwd()">OK</button>
+      </div>
+      <div id="msg"></div>
+    </div>
+  </div>
+</div>
+
+<div id="cardScene">
+  <video src="./style/img/video.mp4" autoplay loop muted playsinline></video>
+  <h2>🌲Chúc Tiểu Thư Giáng Sinh Vui Vẻ 🎁</h2>
+  <p id="cardMess"></p>
+  <button id="openGift">🎁</button>
+</div>
+
+<div id="giftEffect">
+  <img id="HopQua" src="style/img/HopQua.png">
+  <img id="NapHop" src="style/img/NapHop.png">
+  <img id="ThanHop" src="style/img/ThanHop.png">
+</div>
+
+<script src="./style/script.js"></script>
+</body>
+</html>
