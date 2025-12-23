@@ -1,0 +1,256 @@
+*{ box-sizing: border-box; margin: 0; padding: 0; font-family: 'Pacifico', cursive; }
+
+body{
+    background: linear-gradient(135deg, #d4f4dd, #ffccd5);
+    height:100vh;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+#lockScreen{
+    width: fit-content;
+    text-align:center;
+    background:rgba(255,255,255,0.7);
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0 6px 30px rgba(0,0,0,0.1);
+}
+
+.lock-container{ 
+    display:flex; 
+    justify-content:center; 
+    align-items:center; 
+    gap:30px; 
+}
+
+#lockScreen img{ 
+    width:300px; 
+    border-radius:15px; 
+    object-fit:cover; 
+}
+
+.right-box{ 
+    display:flex; 
+    flex-direction:column; 
+    align-items:center; 
+}
+
+.music-controls{ display:flex; justify-content:center; align-items:center; gap:8px; margin-bottom:8px; }
+.music-btn{ background:#fff; border:2px solid #ff8fab; color:#ff3c78; padding:6px 8px; border-radius:10px; cursor:pointer; font-size:18px; }
+.music-btn:hover{ background:#ff8fab; color:#fff; }
+.music-btn.toggled{ background:#3f9; color:#fff; border-color:transparent; }
+/* Ensure button is clickable and above content */
+.music-btn{ z-index: 20; position: relative; pointer-events: auto; }
+
+/* Hide the music-control button on the lock screen (option A) */
+#lockScreen .music-controls{ display:none !important; }
+
+#lockScreen h2{ 
+    color:#d63384;
+    margin-bottom:10px; 
+    text-align:center; 
+}
+
+#pwd{
+    width:200px;
+    padding:10px;
+    border:none;
+    border-radius:10px;
+    text-align:center;
+    font-size:18px;
+    background:#fff;
+    margin-bottom:10px;
+    box-shadow:inset 0 2px 4px rgba(0,0,0,0.1)
+}
+.keypad{
+    margin-top:10px;
+    display:grid;
+    grid-template-columns:repeat(3,60px);
+    gap:10px;
+    justify-content:center;
+}
+.key{
+    padding:10px;
+    border:none;
+    border-radius:10px;
+    background:#ff8fab;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+}
+
+.key:hover{ 
+    background:#ff5d8f; 
+}
+
+.key.clear{ 
+    background:#f8bbd0;
+    color:#333; 
+}
+
+#msg{ 
+    margin-top:8px;
+    color:#b30059; 
+    min-height:18px; 
+}
+
+#cardScene {
+    display:none;
+    width:600px;
+    height:500px;
+    background: linear-gradient(135deg, #f2e8d4, #e6d7bd); /* giấy xám nâu nhạt */
+    border-radius:20px;
+    box-shadow:0 8px 30px rgba(0,0,0,0.15);
+    padding:20px;
+    text-align:center;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+#cardScene video{
+    width:85%; 
+    border-radius:15px; 
+    object-fit:cover; 
+    margin-bottom:10px; 
+    box-shadow:0 4px 20px rgba(0,0,0,0.15);
+}
+
+#cardScene h2 {
+    color: #d81b60;
+    margin-bottom:10px;
+    animation: rainbowText 2s linear infinite;
+    font-size: 28px;
+    font-weight: 600;
+    text-shadow: 0 0 5px #fff;
+}
+
+@keyframes rainbowText {
+    0% { color: #ff0000; }
+    10% { color: #ff7f00; }
+    20% { color: #ffff00; }
+    30% { color: #00ff00; }
+    40% { color: #0000ff; }
+    50% { color: #4b0082; }
+    60% { color: #9400d3; }
+    70% { color: #ff1493; }
+    80% { color: #ff4500; }
+    90% { color: #00ced1; }
+    100% { color: #ff0000; }
+}
+
+#cardScene p{
+    width:80%;
+    margin:0 auto 15px;
+    color:#333;
+    font-size:16px;
+    min-height:24px;
+    white-space:pre-wrap;
+    font-family:'Poppins', sans-serif;
+}
+
+#openGift{
+    background: #ff3c78;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 15px;
+    font-size: 20px;
+    cursor: pointer;
+    animation: float 1.5s infinite;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+#openGift:hover { background: #ff1c5f; }
+#openGift:active {
+    transform: translateY(4px) scale(0.95);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    background: #e60050;
+}
+
+@keyframes bounce {
+    0%,100%{ transform: translateY(0); }
+    50%{ transform: translateY(-10px); }
+}
+
+
+.flyImg{
+    position:fixed;
+    left:-200px;
+    object-fit:cover;
+    border-radius:20px;
+    box-shadow:0 6px 20px rgba(0,0,0,0.25);
+    animation-timing-function: linear;
+    z-index:50;
+    pointer-events:none;
+}
+@keyframes moveLeftToRight{
+    from{transform:translateX(-200px);opacity:2;}
+    to{transform:translateX(120vw);opacity:0.5;}
+}
+
+
+.heart{
+    position: fixed;
+    bottom: -10px;
+    font-size: 20px;
+    animation: flyUp 6s linear forwards;
+    opacity: 0.8;
+    z-index: 5;
+    pointer-events: none;
+}
+@keyframes flyUp{
+    0% { transform: translateY(0) scale(1); opacity:1; }
+    100% { transform: translateY(-110vh) scale(1.8); opacity:0; }
+}
+
+#giftEffect{
+    display:none;
+    position:fixed;
+    width:500px;
+    height:500px;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    z-index:999;
+}
+#giftEffect img{
+    position:absolute;
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    pointer-events:none;
+}
+@keyframes flyUpGift { 0%{transform:translateY(0);opacity:1;}100%{transform:translateY(-200px);opacity:0;} }
+@keyframes flyDownGift { 0%{transform:translateY(0);opacity:1;}100%{transform:translateY(200px);opacity:0;} }
+
+#rotateWarning {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: black;
+    color: white;
+    z-index: 99999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+    font-size: 18px;
+    line-height: 1.4;
+    word-break: break-word;
+    overflow: auto;
+}
+
+/* Music prompt overlay removed */
